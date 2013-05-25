@@ -11,3 +11,10 @@ test('finding .git root relative to the test dir', function (t) {
     t.end()
   });  
 })
+
+test('finding this dir relative to the test dir', function (t) {
+  findParentDir(__dirname, 'find-parent-dir.js', function (err, dir) {
+    t.equals(dir, path.resolve(__dirname))
+    t.end()
+  });  
+})
