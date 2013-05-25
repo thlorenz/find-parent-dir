@@ -1,21 +1,21 @@
 {
-  "name": "resolve-git-dir",
+  "name": "find-parent-dir",
   "version": "0.0.0",
-  "description": "Resolves the root directory of a local git repository, i.e. the dir that contains .git.",
-  "main": "resolve-git-dir.js",
+  "description": "Finds the first parent directory that contains a given file or directory.",
+  "main": "find-parent-dir.js",
   "scripts": {
     "test": "tap test/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/thlorenz/resolve-git-dir.git"
+    "url": "git://github.com/thlorenz/find-parent-dir.git"
   },
-  "homepage": "https://github.com/thlorenz/resolve-git-dir",
+  "homepage": "https://github.com/thlorenz/find-parent-dir",
   "dependencies": {},
   "devDependencies": {
     "tap": "~0.4.3"
   },
-  "keywords": [],
+  "keywords": ["find", "parent", "dir", "root", "resolve", "walk" ],
   "author": {
     "name": "Thorsten Lorenz",
     "email": "thlorenz@gmx.de",

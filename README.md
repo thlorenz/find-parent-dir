@@ -1,4 +1,3 @@
-resolve-git-dir
-===============
+# find-parent-dir
 
-Resolves the root directory of a local git repository, i.e. the dir that contains .git.
+Finds the first parent directory that contains a given file or directory.
