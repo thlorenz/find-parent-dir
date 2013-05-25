@@ -12,5 +12,7 @@ var findParentDir = require('find-parent-dir');
 findParentDir(__dirname, '.git', function (err, dir) {
   // has err if some file access error occurred
   console.log(dir); // => /myprojects/foo/
+  
+  // if parent dir wasn't found, dir is null
 })
 ```
