@@ -1,6 +1,6 @@
 {
   "name": "find-parent-dir",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Finds the first parent directory that contains a given file or directory.",
   "main": "find-parent-dir.js",
   "scripts": {
@@ -15,7 +15,14 @@
   "devDependencies": {
     "tap": "~0.4.3"
   },
-  "keywords": ["find", "parent", "dir", "root", "resolve", "walk" ],
+  "keywords": [
+    "find",
+    "parent",
+    "dir",
+    "root",
+    "resolve",
+    "walk"
+  ],
   "author": {
     "name": "Thorsten Lorenz",
     "email": "thlorenz@gmx.de",
