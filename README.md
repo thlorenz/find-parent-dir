@@ -2,7 +2,6 @@
 
 Finds the first parent directory that contains a given file or directory.
 
-
     npm install find-parent-dir
 
 ```js
@@ -15,4 +14,14 @@ findParentDir(__dirname, '.git', function (err, dir) {
   
   // if parent dir wasn't found, dir is null
 })
+
+// Same using `sync` method
+var dir;
+try { 
+  dir = findParentDir.sync(__dirname, '.git');
+  console.log(dir); // => /myprojects/foo/
+  // if parent dir wasn't found, dir is null
+} catch(err) {
+  console.error('error', err); 
+}
 ```

@@ -1,11 +1,12 @@
 'use strict';
 
-var path   =  require('path')
-  , fs     =  require('fs')
-  , exists =  fs.exists || path.exists
+var path       = require('path')
+  , fs         = require('fs')
+  , exists     = fs.exists || path.exists
+  , existsSync = fs.existsSync || path.existsSync
   ;
 
-module.exports = function (currentFullPath, clue, cb) {
+exports = module.exports = function (currentFullPath, clue, cb) {
 
   function testDir(parts) {
     if (parts.length === 0) return cb(null, null);
@@ -19,4 +20,18 @@ module.exports = function (currentFullPath, clue, cb) {
   }
 
   testDir(currentFullPath.split(/(\/|\\)/));
-};
+}
+
+exports.sync = function (currentFullPath, clue) {
+
+  function testDir(parts) {
+    if (parts.length === 0) return null;
+
+    var p = path.join.apply(path, parts);
+
+    var itdoes = existsSync(path.join(p, clue));
+    return itdoes ? p : testDir(parts.slice(0, -1));
+  }
+  return testDir(currentFullPath.split(/(\/|\\)/));
+
+}
