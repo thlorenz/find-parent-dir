@@ -6,6 +6,12 @@ var path       = require('path')
   , existsSync = fs.existsSync || path.existsSync
   ;
 
+function splitPath(path) {
+  var parts = path.split(/(\/|\\)/); 
+  if (parts.length > 0 && parts[0] === '') parts.shift();
+  return parts;
+}
+
 exports = module.exports = function (currentFullPath, clue, cb) {
 
   function testDir(parts) {
@@ -19,7 +25,8 @@ exports = module.exports = function (currentFullPath, clue, cb) {
     });
   }
 
-  testDir(currentFullPath.split(/(\/|\\)/));
+  testDir(splitPath(currentFullPath));
+
 }
 
 exports.sync = function (currentFullPath, clue) {
@@ -32,6 +39,7 @@ exports.sync = function (currentFullPath, clue) {
     var itdoes = existsSync(path.join(p, clue));
     return itdoes ? p : testDir(parts.slice(0, -1));
   }
-  return testDir(currentFullPath.split(/(\/|\\)/));
+
+  return testDir(splitPath(currentFullPath));
 
 }
