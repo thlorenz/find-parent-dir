@@ -8,8 +8,10 @@ var path       = require('path')
 
 function splitPath(path) {
   var parts = path.split(/(\/|\\)/); 
-  if (parts.length > 0 && parts[0] === '') parts.shift();
-  return parts;
+  if (!parts.length) return parts;
+
+  // when path starts with a slash, the first part is empty string
+  return !parts[0].length ? parts.slice(1) : parts;
 }
 
 exports = module.exports = function (currentFullPath, clue, cb) {
@@ -26,7 +28,6 @@ exports = module.exports = function (currentFullPath, clue, cb) {
   }
 
   testDir(splitPath(currentFullPath));
-
 }
 
 exports.sync = function (currentFullPath, clue) {
@@ -41,5 +42,4 @@ exports.sync = function (currentFullPath, clue) {
   }
 
   return testDir(splitPath(currentFullPath));
-
 }
