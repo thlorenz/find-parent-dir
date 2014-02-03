@@ -9,6 +9,7 @@ var path       = require('path')
 exports = module.exports = function (currentFullPath, clue, cb) {
 
   function testDir(parts) {
+    if (parts.length > 0 && parts[0] === '') parts.shift();
     if (parts.length === 0) return cb(null, null);
 
     var p = path.join.apply(path, parts);
@@ -20,11 +21,13 @@ exports = module.exports = function (currentFullPath, clue, cb) {
   }
 
   testDir(currentFullPath.split(/(\/|\\)/));
+
 }
 
 exports.sync = function (currentFullPath, clue) {
 
   function testDir(parts) {
+    if (parts.length > 0 && parts[0] === '') parts.shift();
     if (parts.length === 0) return null;
 
     var p = path.join.apply(path, parts);
@@ -32,6 +35,7 @@ exports.sync = function (currentFullPath, clue) {
     var itdoes = existsSync(path.join(p, clue));
     return itdoes ? p : testDir(parts.slice(0, -1));
   }
+
   return testDir(currentFullPath.split(/(\/|\\)/));
 
 }
