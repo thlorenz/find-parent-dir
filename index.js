@@ -19,7 +19,7 @@ exports = module.exports = function (currentFullPath, clue, cb) {
   function testDir(parts) {
     if (parts.length === 0) return cb(null, null);
 
-    var p = path.join.apply(path, parts);
+    var p = parts.join('');
 
     exists(path.join(p, clue), function (itdoes) {
       if (itdoes) return cb(null, p);
