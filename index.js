@@ -7,7 +7,7 @@ var path       = require('path')
   ;
 
 function splitPath(path) {
-  var parts = path.split(/(\/|\\)/); 
+  var parts = path.split(/(\/|\\)/);
   if (!parts.length) return parts;
 
   // when path starts with a slash, the first part is empty string
@@ -35,7 +35,7 @@ exports.sync = function (currentFullPath, clue) {
   function testDir(parts) {
     if (parts.length === 0) return null;
 
-    var p = path.join.apply(path, parts);
+    var p = parts.join('');
 
     var itdoes = existsSync(path.join(p, clue));
     return itdoes ? p : testDir(parts.slice(0, -1));
