@@ -1,6 +1,6 @@
 {
   "name": "find-parent-dir",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Finds the first parent directory that contains a given file or directory.",
   "main": "find-parent-dir.js",
   "scripts": {
